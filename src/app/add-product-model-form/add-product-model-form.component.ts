@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { Product } from '../domain-models/product';
+import { ProductService} from '../service/product.service';
 @Component({
   selector: 'app-add-product-model-form',
   templateUrl: './add-product-model-form.component.html',
@@ -16,7 +17,7 @@ export class AddProductModelFormComponent implements OnInit {
   productType: FormControl;
   brand: FormControl;
   price: FormControl;
-  constructor() { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit() {
 //     this.title = new FormControl();
@@ -40,5 +41,8 @@ this.myForm = new FormGroup({
 'price': this.price
 });
   }
-
-}
+addProduct(product: Product) {
+  this.productService.addProduct(product);
+  this.formSubmitted = true;
+  }
+  }
