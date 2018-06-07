@@ -10,6 +10,7 @@ import { ProductService} from '../service/product.service';
 })
 export class AddProductModelFormComponent implements OnInit {
   productTypes = ['laptop', 'phone'];
+  formSubmitted = false;
   myForm: FormGroup;
   title: FormControl;
   modelName: FormControl;
