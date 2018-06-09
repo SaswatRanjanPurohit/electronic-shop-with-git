@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {MockData } from '../mock-data/mock-product-data';
-import{ Product  } from '../domain-models/product';
+import{ Product } from '../domain-models/product';
 @Injectable()
 export class ProductService {
 products : Product[]=[];
@@ -19,4 +19,7 @@ removeProduct(product: Product) {
   this.products.splice(index, 1);
   }
 }
+getProduct(id: number) {
+  return this.products.find( p => p.id === id);
+  }
 }
