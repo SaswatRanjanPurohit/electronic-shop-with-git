@@ -1,7 +1,7 @@
 // import { MockData } from '../mock-data/mock-product-data';
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../domain-models/product';
-import { ProductService} from '../service/product.service';
+import { ProductService } from '../service/product.service';
 
 @Component({
   selector: 'app-products',
@@ -14,9 +14,13 @@ export class ProductsComponent implements OnInit {
   //   this.products = MockData.Products;
   // }
   constructor(public productService: ProductService) {
-    this.products = productService.getProducts();
+    // this.products = productService.getProducts();
     }
+   
   ngOnInit() {
+    this.productService.getProducts().subscribe(
+      products => this.products = products
+      );
   }
   deleteProduct(product:Product){
     // let index = this.products.indexOf(product);
