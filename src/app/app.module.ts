@@ -11,6 +11,9 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { LayoutModule } from './layout/layout.module';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryProductService } from '../app/service/in-memory-product.service';
 
 
 @NgModule({
@@ -23,7 +26,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     ProductDetailComponent
   ],
   imports: [
-    BrowserModule,ReactiveFormsModule,FormsModule,AppRoutingModule, LayoutModule
+    BrowserModule,ReactiveFormsModule,FormsModule,AppRoutingModule, LayoutModule,HttpClientModule,HttpClientInMemoryWebApiModule.forRoot(InMemoryProductService)
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
